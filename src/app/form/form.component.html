@@ -1,0 +1,82 @@
+<div class=" container">
+    <div class="">
+        <b>Reactiveform</b>
+        <hr>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">username</label>
+                <input type="text" formControlName="username" class="form-control test yasdasd" id=" username"
+                    placeholder="username">
+                <div *ngIf="registerForm.controls['username'].touched &&  registerForm.controls['username'].invalid "
+                    class="alert alert-danger">
+                    Enter your Name:
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" formControlName="email" name='email' class="form-control" id="email">
+                <div *ngIf="registerForm.controls['email'].touched &&  registerForm.controls['email'].invalid "
+                    class="text text-danger">
+                    Email is required.
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="password">password</label>
+                    <input type="password" formControlName="password" class="form-control" id=" password"
+                        placeholder="password">
+                    <div *ngIf="registerForm.controls['password'].errors">Password must be at least 6 characters</div>
+
+                </div>
+                <div class="form-group col-6">
+                    <label for="confirmpassword">confirmpassword</label>
+                    <input type="confirpassword" formControlName="confirmpassword" class="form-control "
+                        id=" confirmpassword" placeholder="confirmpassword">
+                    <div class="invalid-feedback"
+                        *ngIf="registerForm.controls['confirmpassword'].hasError('MustMatch')">
+                        password don't match</div>
+                </div>
+            </div>
+
+            <section formGroupName="address">
+                <div class="row">
+                    <div class="form-group col-3">
+                        <label for="street">street</label>
+                        <input type="text" formControlName="street" class="form-control" id="street"
+                            placeholder="street">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="city">city</label>
+                        <input type="text" formControlName="city" class="form-control" id="pwd" placeholder="">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="state">state</label>
+                        <select id="state" class="form-control">
+                            <option value="">choose state</option>
+                            <option *ngFor="let state of stateOptions" [ngValue]="state">
+                                {{state}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-3">
+                        <label for="country">country</label>
+                        <input type="text" formControlName="country" class="form-control" id=" country" placeholder="">
+                    </div>
+                </div>
+            </section>
+
+            <p>Form validaton::{{registerForm.status}}</p>
+            <p>
+                <button class="btn btn-success" type="submit"> <i class="fa fa-submit"></i>submit</button>
+                <button class="btn btn-warning" (click)="clear()"> <i class="fa fa-snow"></i>clear</button>
+                <button class="btn btn-info" (click)="autoFillAddress()"> <i
+                        class="fa fa-address-card"></i>autoFillAddress</button>
+            </p>
+
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.layer {
+    height: auto;
+    width: 25%;
+    background-color: rgb(234, 238, 238);
+    background: no-repeat;
+}
+input.ng-touched.ng-invalid{
+    border:1px solid red;
+}

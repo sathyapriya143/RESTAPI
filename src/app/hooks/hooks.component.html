@@ -1,0 +1,7 @@
+<p>hooks works!</p>
+<button (click)="toggle()"> click</button>
+
+<input type="text" [(ngModel)]="name">
+
+
+<app-childhooks *ngIf="isChild"  [name] ="name"><h2 #projectedContent>Todays pain tommorow gain</h2></app-childhooks>

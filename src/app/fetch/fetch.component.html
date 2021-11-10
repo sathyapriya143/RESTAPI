@@ -1,0 +1,28 @@
+<h1 align="center">fetch works!</h1>
+<h1>Register employee</h1>
+<div class="justify-content-center">
+    <div class="spinner-border" role="status">
+        <span class="sr-only" id="loading">Loder....</span>
+    </div>
+</div>
+
+<p> Http Client</p>
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">NO:</th>
+            <th scope="col">NAME:</th>
+            <th scope="col">EMAIL:</th>
+            <th scope="col">Address:</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of  list ; let i =index">
+            <th scope="row">{{i + 1}}</th>
+            <td><span>{{user?.name}}</span></td>
+            <td><span>{{user?.email}}</span></td>
+            <td><span>{{user?.address.city}}</span></td>
+        </tr>
+    </tbody>
+</table>
